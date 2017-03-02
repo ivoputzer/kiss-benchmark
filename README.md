@@ -8,8 +8,9 @@ npm install --save-dev kiss-benchmark
 
 # usage
 
-```
+[See tests][./test/index.js]
 
+```javascript
 const benchmark = require('kiss-benchmark')
 
 const fast = () => Object.assign({}, {
@@ -22,4 +23,10 @@ const slow = () => Object.assign({}, {
 })
 
 benchmark(fast, slow, 1000000, 'my assumption that "fast" is faster that "slow" is FALSE')
+```
+
+# test
+
+```bash
+MAX_RUNS=25000000 npm t
 ```
