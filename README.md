@@ -13,16 +13,17 @@ npm install --save-dev kiss-benchmark
 ```javascript
 const benchmark = require('kiss-benchmark')
 
-const fast = () => Object.assign({}, {
-  foo () {
-    return 42 * 1000
-  }
-})
-const slow = () => Object.assign({}, {
-  foo: () => 42 * 1000
-})
+const slowBenchmark = () => { return Math.random() * 42 * Math.ceil(Math.PI * Math.random()) }
+const fastBenchmark = () => 42
+const benchmarkOptions = {maxRuns: 10000}
 
-benchmark(fast, slow, 1000000, 'my assumption that "fast" is faster that "slow" is FALSE')
+benchmark({
+  name: 'benchmark-test-not-throws',
+  fastBenchmark,
+  slowBenchmark,
+  options: {},
+  failureMessage: 'my assumption is FALSE'
+})
 ```
 
 # test
