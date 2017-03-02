@@ -9,16 +9,16 @@ module.exports = function kissBenchmark ({name, fastBenchmark, slowBenchmark, op
     const [startFastBenchmarkHrTime, endFastBenchmarkHrTime] = bench(fastBenchmark, {maxRuns})
     const [startSlowBenchmarkHrTime, endSlowBenchmarkHrTime] = bench(slowBenchmark, {maxRuns})
     const fastBenchmarkDurationInNanos = startFastBenchmarkHrTime[0] * 1e9 + endFastBenchmarkHrTime[1]
-    const slowBenchmarkDurationInNanos = fastBenchmarkDurationInNanos - startSlowBenchmarkHrTime[0] * 1e9 + endSlowBenchmarkHrTime[1]
+    const slowBenchmarkDurationInNanos = startSlowBenchmarkHrTime[0] * 1e9 + endSlowBenchmarkHrTime[1] //  - fastBenchmarkDurationInNanos
 
     console.log(`Benchmark took ${startFastBenchmarkHrTime[0] * 1e9 + endSlowBenchmarkHrTime[1]} nanoseconds`)
-    ok(slowBenchmarkDurationInNanos < fastBenchmarkDurationInNanos, failureMessage)
+    ok(slowBenchmarkDurationInNanos > fastBenchmarkDurationInNanos, failureMessage)
   })
 }
 
 function bench (fn, options = {}) {
-  const {maxRuns} = options
-  const startHrTime = process.hrtime()
+  const { maxRuns } = options
+  const startHrTime = process.hrtime(process.hrtime())
   for (let i = 0; i < maxRuns; i++) { fn() }
   return [startHrTime, process.hrtime(startHrTime)]
 }
