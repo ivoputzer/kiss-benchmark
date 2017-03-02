@@ -1,0 +1,23 @@
+{
+  "name": "kiss-benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christian-fei/kiss-benchmark.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christian-fei/kiss-benchmark/issues"
+  },
+  "homepage": "https://github.com/christian-fei/kiss-benchmark#readme",
+  "dependencies": {
+    "m.test": "0.0.53"
+  }
+}
