@@ -4,7 +4,7 @@ const { ok } = require('assert')
 const defaultMaxRuns = 1000000
 
 module.exports = function kissBenchmark ({name, fastBenchmark, slowBenchmark, options = {}, failureMessage}) {
-  const maxRuns = parseInt(options.maxRuns || process.env.MAX_RUNS || defaultMaxRuns)
+  const maxRuns = parseInt(process.env.MAX_RUNS || options.maxRuns || defaultMaxRuns)
   test('comparison-benchmark', () => {
     const [startFastBenchmarkHrTime, endFastBenchmarkHrTime] = bench(fastBenchmark, {maxRuns})
     const [startSlowBenchmarkHrTime, endSlowBenchmarkHrTime] = bench(slowBenchmark, {maxRuns})
