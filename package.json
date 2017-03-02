@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "m.test"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "homepage": "https://github.com/christian-fei/kiss-benchmark#readme",
   "dependencies": {
     "m.test": "0.0.53"
+  },
+  "standard": {
+    "globals": ["test"]
   }
 }

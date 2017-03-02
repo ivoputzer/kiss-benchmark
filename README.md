@@ -21,5 +21,5 @@ const slow = () => Object.assign({}, {
   foo: () => 42 * 1000
 })
 
-benchmark(fast, slow, 'my assumption that "fast" is faster that "slow" is correct')
+benchmark(fast, slow, 1000000, 'my assumption that "fast" is faster that "slow" is correct')
 ```
